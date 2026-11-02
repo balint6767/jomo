@@ -1,0 +1,45 @@
+{
+  "name": "jomo-desktop",
+  "version": "1.0.0",
+  "description": "JOMO – Digitális zajcsökkentő asztali alkalmazás mobil nézettel",
+  "main": "main.js",
+  "author": "JOMO",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "build:win": "electron-builder --win nsis portable",
+    "build:mac": "electron-builder --mac dmg",
+    "build:linux": "electron-builder --linux AppImage",
+    "build": "electron-builder"
+  },
+  "dependencies": {
+    "electron": "^39.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "hu.jomo.desktop",
+    "productName": "JOMO",
+    "files": [
+      "main.js",
+      "index.html",
+      "styles.css",
+      "renderer.js",
+      "README.md"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": ["nsis", "portable"],
+      "artifactName": "JOMO-${version}-${arch}.${ext}"
+    },
+    "mac": {
+      "target": ["dmg"]
+    },
+    "linux": {
+      "target": ["AppImage"]
+    }
+  }
+}
